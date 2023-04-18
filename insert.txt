@@ -1,0 +1,23 @@
+INSERT INTO membership(client_ID, status, date)
+    VALUES
+    (1,'Active','2023/2/3'),
+    (2,'Active','2023/2/4'),
+    (3,'Active','2023/2/5');
+    
+INSERT INTO payment(client_ID, date, amount)
+    VALUES
+    (1, 2023/4/5, 999),
+    (2, 2023/4/6, 799),
+    (3, 2023/4/8, 599);
+
+INSERT INTO trainor(name, sched_ID, salary, email, password)
+    VALUES
+    ('Jose Marie Chan', 1, 1500, 'josemariOniichan@gmail.com', 'XM4Spalagi'),
+    ('Bill Gets', 2, 1750, 'iOwnu@gmail.com', 'Herec0mesda$$$'),
+    ('Steeb Jabs', 3, 1200, '4polforU@gmail.com', 'APL4ebriwan');
+
+INSERT INTO schedule(client_ID, trainor_ID, session, activity, date, time_strat, time_end)
+    VALUES
+    (1,1, 'session 1', 'treadmill', 2023/5/1, 08:08:08:00, 09:09:09:00),
+    (2,2, 'session 2', 'pull-ups', 2023/5/2, 09:08:07:00, 10:09:08:00),
+    (3,3, 'session 3', 'sit-ups', 2023/5/3, 10:20:30:00, 11:10:09:00);
