@@ -1,0 +1,9 @@
+SELECT
+    CONCAT(fname, ' ', lname) AS fullname,
+    membership.status,
+    reports.total_amount AS amount,
+    (reports.total_amount * 10 / 100) AS discounted
+FROM
+    client_member
+INNER JOIN membership ON client_member.client_ID = membership.client_ID
+INNER JOIN reports ON reports.client_ID = client_member.client_ID

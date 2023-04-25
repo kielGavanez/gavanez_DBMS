@@ -1,0 +1,10 @@
+SELECT
+    CONCAT(fname, ' ', lname) AS fullname,
+    (payment.amount-transaction_records.amount) AS amount_to_pay,
+    transaction_records.amount AS amount_paid,
+    membership.status
+FROM
+    client_member
+INNER JOIN payment ON client_member.client_ID = payment.client_ID
+INNER JOIN transaction_records ON client_member.client_ID = transaction_records.client_ID
+INNER JOIN membership ON client_member.client_ID = membership.client_ID;

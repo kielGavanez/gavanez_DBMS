@@ -1,0 +1,13 @@
+SELECT
+    CONCAT(fname, ' ', lname) AS fullname,
+    trainor.name AS trainor,
+    payment.amount AS payment,
+    (
+        payment.amount - transaction_records.amount
+    ) AS amount_to_pay
+FROM
+    client_member
+INNER JOIN payment ON client_member.client_ID = payment.client_ID
+INNER JOIN transaction_records ON client_member.client_ID = transaction_records.client_ID
+INNER JOIN schedule ON client_member.client_ID = schedule.client_ID
+INNER JOIN trainor ON trainor.trainor_ID = schedule.trainor_ID
