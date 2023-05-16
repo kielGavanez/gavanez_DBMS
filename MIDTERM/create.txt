@@ -1,0 +1,26 @@
+CREATE DATABASE studgrade;
+
+USE studgrade;
+
+CREATE TABLE student(
+	StudNo varchar(15) PRIMARY KEY,
+    StudFName varchar(30),
+    StudLname varchar(30),
+    Major ENUM('ECE','COE'),
+    Gender ENUM('M','F'),
+    HomeAddress varchar(100)
+);
+
+CREATE TABLE grade(
+	SubjectCode ENUM('Chem 123', 'Math 122', 'Math 123') PRIMARY KEY,
+    Grade double,
+    StudNo varchar(15),
+    CONSTRAINT gradeFK FOREIGN KEY (StudNo) REFERENCES student(StudNo)
+);
+
+CREATE TABLE subject(
+	SubjectDescr varchar(30),
+    SubjectCode ENUM('Chem 123','Math 122','Math 123'),
+    CONSTRAINT subjectFK FOREIGN KEY (SubjectCode) REFERENCES grade(SubjectCode)
+    
+);
