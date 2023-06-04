@@ -1,0 +1,15 @@
+SELECT
+    Studno,
+    (
+    SELECT
+        CONCAT(StudFName, " ", StudLName) AS NAME
+    FROM
+        student
+    WHERE
+        Studno = grade.Studno
+) AS NAME,
+Grade
+FROM
+    grade
+WHERE
+    Grade < 1.5 AND SubjectCode = "Math 123"
